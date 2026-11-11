@@ -1,0 +1,6 @@
+{
+  "appId": "com.africaquiz.app",
+  "appName": "AFRICA QUIZ",
+  "webDir": "www",
+  "android": { "backgroundColor": "#050b1a" }
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AFRICA QUIZ</title>
+<link rel="stylesheet" href="css/style.css"></head><body>
+
+<section class="screen on" id="home">
+ <h1>AFRICA QUIZ</h1><div class="sub">CULTURE GÉNÉRALE AFRICAINE</div>
+ <svg class="map" viewBox="0 0 200 220"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#10e2a0"/><stop offset="1" stop-color="#22d3ee"/></linearGradient><clipPath id="c"><path id="p" d="M60,20 L100,12 L135,22 L150,40 L172,48 L165,75 L185,100 L172,125 L150,150 L140,185 L118,208 L100,200 L92,160 L80,125 L52,115 L30,95 L25,65 L40,40Z"/></clipPath></defs>
+ <path d="M60,20 L100,12 L135,22 L150,40 L172,48 L165,75 L185,100 L172,125 L150,150 L140,185 L118,208 L100,200 L92,160 L80,125 L52,115 L30,95 L25,65 L40,40Z" fill="rgba(16,226,160,.12)" stroke="url(#g)" stroke-width="2" style="filter:drop-shadow(0 0 8px #22d3ee)"/>
+ <g clip-path="url(#c)" stroke="#22d3ee" stroke-opacity=".35" stroke-width=".6"><path d="M0 40H200M0 70H200M0 100H200M0 130H200M0 160H200M0 190H200M50 0V220M80 0V220M110 0V220M140 0V220M170 0V220"/><rect x="0" y="0" width="200" height="6" fill="#22d3ee" fill-opacity=".5" stroke="none"><animate attributeName="y" values="0;220;0" dur="4s" repeatCount="indefinite"/></rect></g>
+ <circle cx="105" cy="95" r="3" fill="#f5c542"><animate attributeName="r" values="3;7;3" dur="2s" repeatCount="indefinite"/></circle></svg>
+ <div class="glass" onclick="prof()"><div class="top"><b id="pn"></b><span id="lv"></span></div><div class="bar" style="margin-top:8px"><i id="xb"></i></div><div class="mut" id="xt" style="margin-top:6px"></div></div>
+ <button class="btn" onclick="pre()">▶ Jouer en solo</button>
+ <button class="btn gold" onclick="start('duo')">⚔ Jouer à deux</button>
+ <div class="row"><button class="btn ghost" onclick="lb()">🏆 Classement</button><button class="btn ghost" onclick="st()">⚙ Paramètres</button></div>
+</section>
+
+<section class="screen" id="pre"><h2>MODE SOLO</h2><div class="mut">Catégorie</div><div class="chips" id="cc"></div><div class="mut">Difficulté</div><div class="chips" id="dc"></div><div class="mut">10 questions • tu vas jusqu’au bout, même avec des erreurs</div><button class="btn" onclick="start('solo')">▶ Lancer la partie</button><button class="btn ghost" onclick="home()">Retour</button></section>
+<section class="screen" id="names"><h2>DEUX JOUEURS</h2><div class="glass"><div class="mut" style="text-align:left">🔵 Joueur 1</div><input id="n1" maxlength="14" placeholder="Pseudo du joueur 1"></div><div class="glass"><div class="mut" style="text-align:left">🟡 Joueur 2</div><input id="n2" maxlength="14" placeholder="Pseudo du joueur 2"></div><div class="mut">10 questions identiques pour les deux • chacun son tour, son chrono et son score • réponses cachées entre les tours</div><button class="btn gold" onclick="dgo()">⚔ Commencer</button><button class="btn ghost" onclick="home()">Retour</button></section>
+<section class="screen" id="pass" style="justify-content:center;text-align:center"><div class="mut" id="pk"></div><div class="big" id="pw"></div><div class="glass mut" id="pm"></div><button class="btn gold" id="pbtn"></button></section>
+<section class="screen" id="rev"><h2 id="rq"></h2><div class="glass" id="rb"></div><button class="btn" onclick="dnext()">Continuer ▶</button></section>
+<section class="screen" id="game">
+ <div class="top"><span id="who"></span><span id="pg"></span><span id="sc"></span></div>
+ <div class="bar"><i id="pb"></i></div><div class="mut" id="tag"></div>
+ <div class="bar" id="tm"><i></i></div>
+ <div class="glass q" id="qt"></div>
+ <div id="os" style="display:flex;flex-direction:column;gap:10px"></div>
+</section>
+
+<section class="screen" id="end"><h2 id="et"></h2><div id="rs" style="display:flex;flex-direction:column;gap:14px"></div><button class="btn" onclick="start(G.mode)">Rejouer</button><button class="btn ghost" onclick="home()">Accueil</button></section>
+<section class="screen" id="rv"><h2 id="rt"></h2><div id="rl" style="display:flex;flex-direction:column;gap:10px"></div><button class="btn ghost" onclick="show('end')">← Retour aux résultats</button></section>
+
+<section class="screen" id="board"><h2>CLASSEMENT</h2><div class="mut">Meilleurs scores solo</div><div class="glass" id="bl"></div><div class="glass" id="bd"></div><button class="btn ghost" onclick="home()">Retour</button></section>
+
+<section class="screen" id="prof"><h2>PROFIL</h2>
+ <div class="glass" style="text-align:center"><div style="font-size:4rem" id="pav"></div><div class="top" style="justify-content:center;gap:10px"><b id="plv"></b></div><div class="bar" style="margin:8px 0"><i id="pxb"></i></div><div class="mut" id="pxt"></div></div>
+ <div class="glass" id="pst"></div>
+ <div class="glass"><div class="mut" style="text-align:left">Pseudo</div><input id="pin" maxlength="14"><div class="mut" style="text-align:left;margin:10px 0 6px">Avatar</div><div class="chips" id="pav2"></div><div class="mut" style="text-align:left;margin:10px 0 6px">Pays</div><select id="pco"></select></div>
+ <button class="btn" onclick="psave()">Enregistrer</button><button class="btn ghost" onclick="home()">Retour</button></section>
+<section class="screen" id="set"><h2>PARAMÈTRES</h2>
+ <div class="glass"><div class="mut" style="text-align:left">Nom du joueur</div><input id="nm" maxlength="14"></div>
+ <button class="btn ghost" id="sb" onclick="tg('sound')"></button>
+ <button class="btn ghost" id="tb" onclick="tg('time')"></button>
+ <button class="btn ghost" id="vb" onclick="tg('voice')"></button>
+ <button class="btn ghost" id="thb" onclick="tg('theme')"></button>
+ <div class="glass"><div class="mut" style="text-align:left" id="vl"></div><input type="range" id="vv" min="0" max="1" step=".1" oninput="D.vol=+this.value;sv();lab()"></div>
+ <div class="glass"><div class="mut" style="text-align:left" id="rtl"></div><input type="range" id="vr" min=".5" max="1.5" step=".1" oninput="D.rate=+this.value;sv();lab()"></div>
+ <div class="glass"><div class="mut" style="text-align:left">Voix</div><select id="vsel" onchange="D.vid=this.value;sv();vtest()"></select><div class="mut" id="vst" style="margin-top:8px"></div></div>
+ <button class="btn ghost" id="vin" style="display:none" onclick="TTS.install()">⬇ Installer une voix française</button>
+ <button class="btn ghost" onclick="vtest()">🔊 Tester la voix</button>
+ <button class="btn ghost" onclick="if(confirm('Effacer toute la progression ?')){D=def();sv();st();home()}">Réinitialiser</button>
+ <button class="btn" onclick="D.name=nm.value.trim()||'Joueur';sv();home()">Enregistrer</button>
+ <div class="mut">100 % hors ligne • aucune donnée envoyée</div>
+</section>
+
+<div id="fx"></div>
+<script src="js/questions.js"></script>
+<script src="js/voice.js"></script>
+<script src="js/app.js"></script></body></html>
